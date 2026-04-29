@@ -51,4 +51,61 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
+
+    // Reusable typing animation function
+    function initTypewriter(selector, words, loopDelay = 2000, typingSpeed = 120, erasingSpeed = 50) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        
+        el.classList.add('typing-active');
+        let fallbackText = el.textContent;
+        el.textContent = '';
+        
+        // If words is empty but element had text, use that text
+        if (words.length === 0 && fallbackText) {
+            words = [fallbackText];
+        }
+        if (words.length === 0) return;
+        
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                el.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                el.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? erasingSpeed : typingSpeed;
+            
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = loopDelay;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+            
+            setTimeout(type, typeSpeed);
+        }
+        
+        const typeObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                setTimeout(type, 500);
+                typeObserver.disconnect();
+            }
+        }, { threshold: 0.5 });
+        
+        typeObserver.observe(el.closest('h2, div, p'));
+    }
+
+    initTypewriter('.typing-text', [], 2000, 150, 80);
+    initTypewriter('.typing-text-2', ['Premium Luxury Rides', 'Your Safety, Our Priority', '24/7 Availability'], 2000, 100, 50);
 });
