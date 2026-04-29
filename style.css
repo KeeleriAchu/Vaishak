@@ -211,12 +211,14 @@ nav a:hover {
     position: relative;
     overflow: hidden;
     padding-top: 80px;
+    justify-content: center;
+    text-align: center;
 }
 
 .hero-content {
-    flex: 1;
     z-index: 2;
-    padding-right: 2rem;
+    max-width: 800px;
+    width: 100%;
 }
 
 .hero h1 {
@@ -229,12 +231,15 @@ nav a:hover {
     font-size: 1.2rem;
     color: #555;
     margin-bottom: 2.5rem;
-    max-width: 500px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-group {
     display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 
 .hero-image-container {
@@ -349,8 +354,7 @@ nav a:hover {
 
 /* About Section */
 .about-section {
-    padding: 6rem 5%;
-    background-color: var(--bg-dark);
+    padding: 8rem 5% 6rem 5%;
 }
 
 .about-container {
@@ -410,7 +414,6 @@ nav a:hover {
     padding: 6rem 5%;
     display: flex;
     justify-content: center;
-    background: linear-gradient(to top, #eee 0%, #fafafa 100%);
 }
 
 .contact-card {
@@ -601,4 +604,16 @@ footer {
         font-size: 1rem;
         margin: 0 1rem;
     }
+}
+
+/* Typing Animation */
+.typing-active {
+    border-right: 3px solid var(--gold);
+    padding-right: 4px;
+    animation: blink-caret 0.8s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--gold); }
 }
