@@ -414,7 +414,7 @@ nav a:hover {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 62% 40%;
+    object-position: center top;
     border: 3.5px solid var(--gold);
     box-shadow: 0 10px 25px rgba(181, 149, 47, 0.35), 0 0 0 5px rgba(212, 175, 55, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
