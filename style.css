@@ -365,18 +365,142 @@ nav a:hover {
     gap: 4rem;
 }
 
-.about-image-wrapper {
-    flex: 1;
-    padding: 1rem;
+/* Innova Image Showcase */
+.about-image-container {
+    flex: 1.15;
+    width: 100%;
+    max-width: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.driver-img {
+.innova-img {
     width: 100%;
     height: auto;
-    border-radius: 15px;
+    border-radius: 20px;
+    display: block;
     object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+.innova-img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Contact Profile Header & Photo */
+.contact-profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.contact-avatar-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+}
+
+.contact-avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 62% 40%;
+    border: 3.5px solid var(--gold);
+    box-shadow: 0 10px 25px rgba(181, 149, 47, 0.35), 0 0 0 5px rgba(212, 175, 55, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-avatar-wrapper:hover .contact-avatar-img {
+    transform: scale(1.05);
+    box-shadow: 0 14px 30px rgba(181, 149, 47, 0.45), 0 0 0 7px rgba(212, 175, 55, 0.25);
+}
+
+.contact-avatar-badge {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 28px;
+    height: 28px;
+    background: #10b981;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2.5px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.contact-profile-name {
+    font-size: 1.6rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0.2rem;
+}
+
+.contact-profile-role {
+    font-size: 0.95rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.contact-vehicle-tag {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Contact Button Group */
+.contact-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+    background: #20ba59;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.35);
+    color: #fff;
+}
+
 
 .about-content {
     flex: 1;
@@ -551,6 +675,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 900px) {
+    .glass-nav {
+        padding: 1rem 4%;
+    }
+
     .hero {
         flex-direction: column;
         text-align: center;
@@ -570,15 +698,27 @@ footer {
         display: none;
     }
 
+    .about-section {
+        padding: 7.5rem 5% 4rem 5%;
+    }
+
     .about-container {
         flex-direction: column;
         text-align: center;
+        gap: 2.5rem;
+    }
+
+    .about-image-container {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
     }
     
     .align-left {
         margin: 0 auto 2rem auto !important;
     }
 }
+
 @media (max-width: 500px) {
     .cta-group {
         flex-direction: column;
@@ -587,21 +727,56 @@ footer {
         font-size: 2.5rem;
     }
     .section-title h2, .about-content h2, .contact-card h2 {
-        font-size: 2rem;
+        font-size: 1.85rem;
     }
     .glass-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
-    .features, .about-section, .contact-section {
-        padding: 4rem 5%;
+    .features, .contact-section {
+        padding: 3.5rem 4%;
     }
+    .about-section {
+        padding: 6.8rem 4% 3rem 4%;
+    }
+
+    /* Mobile Innova Image */
+    .about-image-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .innova-img {
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Mobile Contact Profile */
+    .contact-avatar-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .contact-profile-name {
+        font-size: 1.4rem;
+    }
+
+    .contact-profile-role {
+        font-size: 0.82rem;
+    }
+
+    .contact-vehicle-tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.7rem;
+    }
+
     .detail-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 0.35rem;
     }
     .marquee-content span {
-        font-size: 1rem;
+        font-size: 0.95rem;
         margin: 0 1rem;
     }
 }
